@@ -235,11 +235,13 @@ Paragraph::
 	call ManualTextScroll
 	hlcoord 1, 13
 	lb bc, 4, 18
-	call ClearScreenArea
+;	call ClearScreenArea
+	call ScrollTextUpOneLine
+	call ScrollTextUpOneLine
 	ld c, 20
 	call DelayFrames
 	pop de
-	hlcoord 1, 14
+	hlcoord 1, 15
 	jp NextChar
 
 PageChar::
@@ -248,29 +250,23 @@ PageChar::
 	ldcoord_a 18, 16
 	call ProtectedDelay3
 	call ManualTextScroll
-	hlcoord 1, 10
+	hlcoord 1, 13
 	lb bc, 7, 18
-	call ClearScreenArea
+;	call ClearScreenArea
+	call ScrollTextUpOneLine
+	call ScrollTextUpOneLine
 	ld c, 20
 	call DelayFrames
 	pop de
 	pop hl
-	hlcoord 1, 11
+	hlcoord 1, 15
 	push hl
 	jp NextChar
 
 _ContText::
-	ld a, "▼"
-	ldcoord_a 18, 16
-	call ProtectedDelay3
-	push de
-	call ManualTextScroll
-	pop de
-	ld a, " "
-	ldcoord_a 18, 16
 _ContTextNoPause::
 	push de
-	call ScrollTextUpOneLine
+;	call ScrollTextUpOneLine
 	call ScrollTextUpOneLine
 	hlcoord 1, 16
 	pop de
@@ -451,7 +447,7 @@ TextCommand_SCROLL::
 ; below the first character column of the text box.
 	ld a, " "
 	ldcoord_a 18, 16 ; place blank space in lower right corner of dialogue text box
-	call ScrollTextUpOneLine
+;	call ScrollTextUpOneLine
 	call ScrollTextUpOneLine
 	pop hl
 	bccoord 1, 16 ; second line of dialogue text box
