@@ -1788,3 +1788,8 @@ _TextIDErrorText::
 _ContCharText::
 	text "<_CONT>@"
 	text_end
+
+_BoyGirlText::
+    text "Are you a boy,"
+    line "or a girl?"
+    done
